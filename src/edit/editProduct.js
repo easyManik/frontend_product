@@ -42,7 +42,7 @@ const editProduct = () => {
         createBy: result.createby,
       });
     },
-    []
+    [dispatch, formUpdate, params.id]
   );
 
   const handleChange = (e) => {

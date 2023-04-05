@@ -24,7 +24,7 @@ const MyProduct = () => {
         totalPage: page.totalPage,
       })
     );
-  }, [page]);
+  }, [dispatch, page]);
   return (
     <div>
       <main>

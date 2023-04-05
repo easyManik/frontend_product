@@ -35,7 +35,7 @@ const DetailProduct = () => {
         createon: result.createon,
       });
     },
-    []
+    [detailProduct, dispatch, params.id]
   );
 
   return (
