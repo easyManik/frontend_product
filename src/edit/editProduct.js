@@ -86,110 +86,112 @@ const editProduct = () => {
           onSubmit={handleUpdate}
           className="mx-5 p-5 d-flex justify-content-center row"
         >
-          <div className={styles.inventory}>
-            <div className="row">
-              <div className="col">
-                <h4 className={styles.inventory1}>Add Product</h4>
-                <hr />
-                <h4 className={styles.nameOfGoods}>ID</h4>
-                <input
-                  type="text"
-                  name="id"
-                  id="id"
-                  value={formUpdate.id}
-                  onChange={handleChange}
-                  className={styles.inputName}
-                />
+          <div>
+            <div className={styles.inventory}>
+              <div className="row">
+                <div className="col">
+                  <h4 className={styles.inventory1}>Add Product</h4>
+                  <hr />
+                  <h4 className={styles.nameOfGoods}>ID</h4>
+                  <input
+                    type="text"
+                    name="id"
+                    id="id"
+                    value={formUpdate.id}
+                    onChange={handleChange}
+                    className={styles.inputName}
+                  />
 
-                <h4 className={styles.nameOfGoods}>Product Name</h4>
-                <input
-                  type="text"
-                  name="productName"
-                  id="productName"
-                  value={formUpdate.productName}
-                  onChange={handleChange}
-                  className={styles.inputName}
-                />
+                  <h4 className={styles.nameOfGoods}>Product Name</h4>
+                  <input
+                    type="text"
+                    name="productName"
+                    id="productName"
+                    value={formUpdate.productName}
+                    onChange={handleChange}
+                    className={styles.inputName}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className={styles.itemDetails}>
-            <div className="row">
-              <div className="col">
-                <h4 className={styles.itemDetails1}>
-                  Details Properti of Product
-                </h4>
-                <hr />
-                <h4 className={styles.detail}>Product ID</h4>
-                <input
-                  type="text"
-                  name="productID"
-                  id="productID"
-                  value={formUpdate.productID}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder=" "
-                />
-                <h4 className={styles.detail}>Amount</h4>
-                <input
-                  type="text"
-                  name="amount"
-                  id="amount"
-                  value={formUpdate.amount}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder=" "
-                />
-                <h4 className={styles.detail}>Customer Name</h4>
-                <input
-                  type="text"
-                  name="customerName"
-                  id="customerName"
-                  value={formUpdate.customerName}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder=" "
-                />
-                <h4 className={styles.detail}>Transaction Date</h4>
-                <input
-                  type="text"
-                  name="transactionDate"
-                  id="transactionDate"
-                  value={formUpdate.transactionDate}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder=" "
-                />
-                <h4 className={styles.detail}>Create By</h4>
-                <input
-                  type="text"
-                  name="createBy"
-                  id="createBy"
-                  value={formUpdate.createBy}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder=" "
-                />
-                <h4 className={styles.detail}>Create On</h4>
-                <input
-                  type="text"
-                  name="createOn"
-                  id="createOn"
-                  value={formUpdate.createOn}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder=" "
-                />
-                <h4 className={styles.detail}>Status</h4>
-                <input
-                  type="text"
-                  name="status"
-                  id="status"
-                  value={formUpdate.status}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder=" "
-                />
+            <div className={styles.itemDetails}>
+              <div className="row">
+                <div className="col">
+                  <h4 className={styles.itemDetails1}>
+                    Details Properti of Product
+                  </h4>
+                  <hr />
+                  <h4 className={styles.detail}>Product ID</h4>
+                  <input
+                    type="text"
+                    name="productID"
+                    id="productID"
+                    value={formUpdate.productID}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder=" "
+                  />
+                  <h4 className={styles.detail}>Amount</h4>
+                  <input
+                    type="text"
+                    name="amount"
+                    id="amount"
+                    value={formUpdate.amount}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder=" "
+                  />
+                  <h4 className={styles.detail}>Customer Name</h4>
+                  <input
+                    type="text"
+                    name="customerName"
+                    id="customerName"
+                    value={formUpdate.customerName}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder=" "
+                  />
+                  <h4 className={styles.detail}>Transaction Date</h4>
+                  <input
+                    type="text"
+                    name="transactionDate"
+                    id="transactionDate"
+                    value={formUpdate.transactionDate}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder=" "
+                  />
+                  <h4 className={styles.detail}>Create By</h4>
+                  <input
+                    type="text"
+                    name="createBy"
+                    id="createBy"
+                    value={formUpdate.createBy}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder=" "
+                  />
+                  <h4 className={styles.detail}>Create On</h4>
+                  <input
+                    type="text"
+                    name="createOn"
+                    id="createOn"
+                    value={formUpdate.createOn}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder=" "
+                  />
+                  <h4 className={styles.detail}>Status</h4>
+                  <input
+                    type="text"
+                    name="status"
+                    id="status"
+                    value={formUpdate.status}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder=" "
+                  />
+                </div>
               </div>
             </div>
           </div>
