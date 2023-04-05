@@ -27,23 +27,23 @@ const editProduct = () => {
   const dispatch = useDispatch();
   const params = useParams();
 
-  const handleGetDetail = async () => {
-    const result = await dispatch(getDetailProduct(params.id));
-    console.log(result);
-    setFormUpdate({
-      ...formUpdate,
-      id: result.id,
-      productName: result.productname,
-      productID: result.productid,
-      amount: result.amount,
-      customerName: result.customername,
-      transactionDate: result.transactiondate,
-      createBy: result.createby,
-    });
-  };
-  useEffect(() => {
-    handleGetDetail();
-  }, []);
+  useEffect(
+    () => async () => {
+      const result = await dispatch(getDetailProduct(params.id));
+      console.log(result);
+      setFormUpdate({
+        ...formUpdate,
+        id: result.id,
+        productName: result.productname,
+        productID: result.productid,
+        amount: result.amount,
+        customerName: result.customername,
+        transactionDate: result.transactiondate,
+        createBy: result.createby,
+      });
+    },
+    []
+  );
 
   const handleChange = (e) => {
     setFormUpdate({

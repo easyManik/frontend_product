@@ -19,24 +19,24 @@ const DetailProduct = () => {
     createby: "",
     createon: "",
   });
-  const handleGetDetail = async () => {
-    const result = await dispatch(getDetailProduct(params.id));
-    console.log(result);
-    setDetailProduct({
-      ...detailProduct,
-      id: result.id,
-      productname: result.productname,
-      productid: result.productid,
-      amount: result.amount,
-      customername: result.customername,
-      transactiondate: result.transactiondate,
-      createby: result.createby,
-      createon: result.createon,
-    });
-  };
-  useEffect(() => {
-    handleGetDetail();
-  }, []);
+  useEffect(
+    () => async () => {
+      const result = await dispatch(getDetailProduct(params.id));
+      console.log(result);
+      setDetailProduct({
+        ...detailProduct,
+        id: result.id,
+        productname: result.productname,
+        productid: result.productid,
+        amount: result.amount,
+        customername: result.customername,
+        transactiondate: result.transactiondate,
+        createby: result.createby,
+        createon: result.createon,
+      });
+    },
+    []
+  );
 
   return (
     <div
