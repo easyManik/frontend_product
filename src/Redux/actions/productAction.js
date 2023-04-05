@@ -51,7 +51,7 @@ export const insertProduct = (data, token, navigate) => async (dispatch) => {
       text: `${result.data.message}`,
       icon: "success",
     });
-    navigate("/product");
+    navigate("/");
   } catch (error) {
     console.log(error);
     swal({
@@ -75,7 +75,7 @@ export const updateProduct = (id, data, navigate) => async (dispatch) => {
       text: `${result.data.message}`,
       icon: "success",
     });
-    navigate("/product");
+    navigate("/");
   } catch (error) {
     console.log(error);
     swal({

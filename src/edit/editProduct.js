@@ -60,7 +60,7 @@ const editProduct = () => {
     dispatch(updateProduct(formUpdate.id, data))
       .then(() => {
         swal("Good Job!", "Update Success", "success");
-        navigate("/product");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -72,7 +72,7 @@ const editProduct = () => {
       <div className="col-4">
         <aside>
           <div className={styles.btnRoute}>
-            <Link to="/product">
+            <Link to="/">
               <button className="btn" style={{ color: "white" }}>
                 {" "}
                 Gp To List Product
