@@ -1,0 +1,29 @@
+.nameProduct {
+  padding-top: 5px;
+  padding-left: 10px;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.productDetail {
+  width: 100%px;
+  height: 100%px;
+  object-fit: cover;
+}
+
+.box .btnedit {
+  bottom: 60px;
+  height: 43px;
+  width: 250px;
+  background: green;
+  border-radius: 25px;
+  color: #fff;
+  border: none;
+}
+
+p {
+  color: green;
+  font-size: 25px;
+}
