@@ -3,12 +3,10 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getDetailProduct } from "./../Redux/actions/productAction";
 import styles from "./detailProduct.module.css";
 import axios from "axios";
 
 const DetailProduct = () => {
-  const dispatch = useDispatch();
   const params = useParams();
   const Navigate = useNavigate();
   const [detailProduct, setDetailProduct] = useState({
