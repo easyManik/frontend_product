@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -14,7 +15,7 @@ const DetailProduct = () => {
     productname: "",
     amount: "",
     customername: "",
-    status: "",
+    status: 0,
     transactiondate: "",
     createby: "",
     createon: "",
@@ -25,7 +26,6 @@ const DetailProduct = () => {
       console.log(result);
       setDetailProduct({
         ...detailProduct,
-        id: result.id,
         productname: result.productname,
         productid: result.productid,
         amount: result.amount,
@@ -35,7 +35,7 @@ const DetailProduct = () => {
         createon: result.createon,
       });
     },
-    [detailProduct, dispatch, params.id]
+    []
   );
 
   return (

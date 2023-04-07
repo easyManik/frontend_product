@@ -29,6 +29,7 @@ export const getDetailProduct = (id) => async (dispatch) => {
       type: string.GET_PRODUCT_DETAIL_SUCCESS,
       payload: resData.data,
     });
+    console.log(resData.data);
     return resData.data;
   } catch (error) {
     dispatch({
@@ -62,13 +63,13 @@ export const insertProduct = (data, token, navigate) => async (dispatch) => {
   }
 };
 
-export const updateProduct = (id, data, navigate) => async (dispatch) => {
+export const updateProduct = (id, navigate) => async (dispatch) => {
   try {
     const result = await axios.put(
-      `https://backendproduct-production.up.railway.app/${id}`,
-      data
+      `https://backendproduct-production.up.railway.app/${id}`
     );
     const updateprod = result.data;
+    console.log("update", updateprod);
     dispatch({ type: "ADD_TICKET", payload: updateprod });
     swal({
       title: "Insert product Success",

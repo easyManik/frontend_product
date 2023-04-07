@@ -1,49 +1,42 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from "react";
 import styles from "./editProduct.module.css";
-import {
-  getDetailProduct,
-  updateProduct,
-} from "./../Redux/actions/productAction";
+import { updateProduct } from "./../Redux/actions/productAction";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
-import swal from "sweetalert";
+import axios from "axios";
 
 const editProduct = () => {
   const navigate = useNavigate();
 
-  const [formUpdate, setFormUpdate] = useState({
-    id: 0,
-    productID: "",
-    productName: "",
-    amount: "",
-    customerName: "",
-    status: 0,
-    transactionDate: "",
-    createBy: "",
-  });
-
   const dispatch = useDispatch();
   const params = useParams();
 
-  useEffect(
-    () => async () => {
-      const result = await dispatch(getDetailProduct(params.id));
-      console.log(result);
-      setFormUpdate({
-        ...formUpdate,
-        id: result.id,
-        productName: result.productname,
-        productID: result.productid,
-        amount: result.amount,
-        customerName: result.customername,
-        transactionDate: result.transactiondate,
-        createBy: result.createby,
+  const [formUpdate, setFormUpdate] = useState({
+    productid: "",
+    productname: "",
+    amount: "",
+    customername: "",
+    status: "",
+    transactiondate: "",
+    createby: "",
+    createon: "",
+  });
+  useEffect(() => {
+    axios
+      .get(`https://backendproduct-production.up.railway.app/${params.id}`)
+      .then((res) => {
+        console.log("Get detail user success");
+        console.log(res.data);
+        res.data && setFormUpdate(res.data.data);
+      })
+      .catch((err) => {
+        console.log("Get detail user fail");
+        console.log(err);
       });
-    },
-    [dispatch, formUpdate, params.id]
-  );
+  }, []);
 
   const handleChange = (e) => {
     setFormUpdate({
@@ -57,15 +50,7 @@ const editProduct = () => {
     let data = {
       ...formUpdate,
     };
-    dispatch(updateProduct(formUpdate.id, data))
-      .then(() => {
-        swal("Good Job!", "Update Success", "success");
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-        swal("Update Failed", "", "error");
-      });
+    dispatch(updateProduct(formUpdate.id, data, navigate));
   };
   return (
     <div className="d-flex flex-row" style={{ backgroundColor: "#F0F1F9" }}>
@@ -105,9 +90,9 @@ const editProduct = () => {
                   <h4 className={styles.nameOfGoods}>Product Name</h4>
                   <input
                     type="text"
-                    name="productName"
-                    id="productName"
-                    value={formUpdate.productName}
+                    name="productname"
+                    id="productname"
+                    value={formUpdate.productname}
                     onChange={handleChange}
                     className={styles.inputName}
                   />
@@ -124,9 +109,9 @@ const editProduct = () => {
                   <h4 className={styles.detail}>Product ID</h4>
                   <input
                     type="text"
-                    name="productID"
-                    id="productID"
-                    value={formUpdate.productID}
+                    name="productid"
+                    id="productid"
+                    value={formUpdate.productid}
                     onChange={handleChange}
                     className={styles.input}
                     placeholder=" "
@@ -144,9 +129,9 @@ const editProduct = () => {
                   <h4 className={styles.detail}>Customer Name</h4>
                   <input
                     type="text"
-                    name="customerName"
-                    id="customerName"
-                    value={formUpdate.customerName}
+                    name="customername"
+                    id="customername"
+                    value={formUpdate.customername}
                     onChange={handleChange}
                     className={styles.input}
                     placeholder=" "
@@ -154,9 +139,9 @@ const editProduct = () => {
                   <h4 className={styles.detail}>Transaction Date</h4>
                   <input
                     type="text"
-                    name="transactionDate"
-                    id="transactionDate"
-                    value={formUpdate.transactionDate}
+                    name="transactiondate"
+                    id="transactiondate"
+                    value={formUpdate.transactiondate}
                     onChange={handleChange}
                     className={styles.input}
                     placeholder=" "
@@ -164,9 +149,9 @@ const editProduct = () => {
                   <h4 className={styles.detail}>Create By</h4>
                   <input
                     type="text"
-                    name="createBy"
-                    id="createBy"
-                    value={formUpdate.createBy}
+                    name="createby"
+                    id="createby"
+                    value={formUpdate.createby}
                     onChange={handleChange}
                     className={styles.input}
                     placeholder=" "
@@ -174,9 +159,9 @@ const editProduct = () => {
                   <h4 className={styles.detail}>Create On</h4>
                   <input
                     type="text"
-                    name="createOn"
-                    id="createOn"
-                    value={formUpdate.createOn}
+                    name="createon"
+                    id="createon"
+                    value={formUpdate.createon}
                     onChange={handleChange}
                     className={styles.input}
                     placeholder=" "
@@ -200,7 +185,7 @@ const editProduct = () => {
             className="btn mt-4"
             style={{ backgroundColor: "green", color: "white", width: "150px" }}
           >
-            Add
+            Edit
           </button>
         </form>
       </div>

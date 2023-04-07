@@ -36,7 +36,7 @@ const AddProduct = () => {
     dispatch(insertProduct(data))
       .then(() => {
         swal("Good Job!", "Insert product Success", "success");
-        Navigate("/product");
+        Navigate("/");
       })
       .catch(() => swal("Insert product Failed", "", "error"));
   };
@@ -45,7 +45,7 @@ const AddProduct = () => {
       <div className="col-4">
         <aside>
           <div className={styles.btnRoute}>
-            <Link to="/product">
+            <Link to="/">
               <button className="btn" style={{ color: "white" }}>
                 {" "}
                 Gp To List Product
