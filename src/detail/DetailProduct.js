@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getDetailProduct } from "./../Redux/actions/productAction";
 import styles from "./detailProduct.module.css";
+import axios from "axios";
 
 const DetailProduct = () => {
   const dispatch = useDispatch();
@@ -15,28 +16,24 @@ const DetailProduct = () => {
     productname: "",
     amount: "",
     customername: "",
-    status: 0,
+    status: "",
     transactiondate: "",
     createby: "",
     createon: "",
   });
-  useEffect(
-    () => async () => {
-      const result = await dispatch(getDetailProduct(params.id));
-      console.log(result);
-      setDetailProduct({
-        ...detailProduct,
-        productname: result.productname,
-        productid: result.productid,
-        amount: result.amount,
-        customername: result.customername,
-        transactiondate: result.transactiondate,
-        createby: result.createby,
-        createon: result.createon,
+  useEffect(() => {
+    axios
+      .get(`https://backendproduct-production.up.railway.app/${params.id}`)
+      .then((res) => {
+        console.log("Get detail user success");
+        console.log(res.data);
+        res.data && setDetailProduct(res.data.data);
+      })
+      .catch((err) => {
+        console.log("Get detail user fail");
+        console.log(err);
       });
-    },
-    []
-  );
+  }, []);
 
   return (
     <div
